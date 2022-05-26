@@ -42,5 +42,15 @@ const checkTodo = (e) => {
 };
 $form.addEventListener("submit", checkTodo);
 
+// 삭제
+const deleteTodo = () => {};
+
+document.body.addEventListener("click", (e) => {
+  console.log(e.target); // 이벤트 벌인 엘리먼트 추적
+  if (e.target.className === "delete") {
+    deleteTodo();
+  }
+});
+
 // 시작 시 todos 출력
 printTodos();
