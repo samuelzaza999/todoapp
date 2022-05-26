@@ -1,4 +1,4 @@
-import printTodos from "./printTodos";
+import { printTodos } from "./printTodos";
 
 const $form = document.querySelector(".new-task");
 const $input = document.querySelector(".new-task > input");
@@ -23,4 +23,4 @@ function init(todos) {
   $form.addEventListener("submit", checkTodo);
 }
 
-export { init as initForm };
+export { init };

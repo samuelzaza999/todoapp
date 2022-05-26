@@ -1,14 +1,16 @@
-// npm install - 웹팩 config의 dist를 docs로 변경 - npm run build
+// npm install - 웹팩 config의 dist를 docs로 변경 - npm run build - github pages에 docs 선택
 
-import printTodos from "./printTodos";
-import { initForm } from "./form";
+import { printTodos } from "./printTodos";
+import { init as initForm } from "./form";
+import { get as getStorage } from "./storage";
 import "./todos.css";
 
 // 기본 입력형
-const todos = [
-  { title: "샌즈", isDone: false },
-  { title: "파피루스", isDone: true },
-];
+// const todos = [
+//   { title: "샌즈", isDone: false },
+//   { title: "파피루스", isDone: true },
+// ];
+const todos = getStorage() || [];
 
 // 폼에 입력 이벤트 추가하기 & 입력 시 todo 추가
 const print = () => {
@@ -23,7 +25,7 @@ const deleteTodo = (index) => {
   print();
 };
 
-// index의 todo.inDone 반전
+// index의 todo.isDone 반전
 const toggleTodo = (index) => {
   console.log("toggle", index);
   todos[index].isDone = !todos[index].isDone;
